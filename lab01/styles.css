@@ -1,0 +1,119 @@
+/* Colors to be used in css
+
+Orange - E38E49
+Light Blue - D4EBF8
+Dark Blue - 0A3981
+
+Flexbox Container color - Light Blue
+Name / Title - Dark Blue
+Spans - Orange
+Outside of Flexbox - Orange
+
+*/
+
+.heading {
+    color: #0A3981;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 4em;
+    font-weight: 600;
+    width: auto;
+    padding: 0.6em 0.2em 0.2em;
+    margin: 4% 0 25px;
+}
+
+.text, span{
+    font-family: sans-serif;
+    font-size: 33px;
+    max-width: 1000px;
+    line-height: 1.4;
+    align-content: center;
+}
+
+.text{
+    padding: 0 1vw;
+    margin: 0 2vw;
+}
+
+span{
+    color: #e38e49;
+    font-weight: 600;
+
+}
+
+body{
+    margin: 0;
+    background-color: #e38e49;
+}
+
+.main-container{
+    background-color: #d4ebf8;
+    width: 100em;
+    max-width: 80vw;
+    margin: 95px auto;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+.images-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1450px;
+    gap: 11px;
+    justify-content: center;
+    align-items: center;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    padding-top: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+div img{
+    aspect-ratio: 1/1;
+    max-width: 500px;
+}
+
+.images-container img{
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#bottomright {
+    object-fit: cover;
+    object-position: 86%;
+}
+
+@media screen and (min-width: 1325px) {
+    .heading {
+        min-width: 990px;
+        text-align: left;
+    }
+  }
+
+  @media screen and (min-width: 400px) {
+    .heading{
+        width: 4.4em;
+    }
+
+    .text{
+        text-align: center;
+    }
+    
+  }
