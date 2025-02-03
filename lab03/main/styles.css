@@ -65,6 +65,7 @@ nav a {
   padding: 20px 0px;
   font-size: 20px;
   margin: 0.7rem;
+  transition: 0.3s ease-in-out;
 }
 nav h1 {
   font-size: xx-large;
@@ -81,6 +82,10 @@ nav {
   color: white;
   padding: 30px 0px;
   text-align: center;
+}
+
+nav a:hover {
+  scale: 2;
 }
 
 .recipes, .recipes2 {
