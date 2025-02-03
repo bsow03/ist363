@@ -1,2 +1,9 @@
 //reused CSS blocks of properties with mixin or extend – for example all the boxes for the recipes
 //You must use at least one mixin and one extend to get full points.
+
+@mixin newsletter {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+}

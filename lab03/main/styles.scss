@@ -1,1 +1,173 @@
 // at least one example of SASS nesting
+@import "../partials/variables";
+@import "../partials/mixins";
+@import "../partials/reset";
+
+//Nav
+nav {
+    a{
+        color: white;
+        font-family: $font;
+        padding:$nav_textpadding;
+        font-size: $small_font;
+        margin: $link_margins;
+    }
+    h1{
+        font-size: xx-large;
+        font-weight: 600;
+        font-family:$font;
+        padding:$nav_textpadding;
+    }
+    p {
+        font-family: $font;
+    }
+}
+
+nav {
+    background-color: $nav_bg;
+    color: $text_color;
+    padding: $nav_padding;
+    text-align: center;
+}
+
+//Gallery
+.recipes {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1.5rem;
+    h3{
+        font-family: $font;
+        font-size: $subheading_font;
+        color: $heading_color;
+        font-weight: $gtext_weight;
+
+    }
+}
+
+.container {
+    padding: 2rem 16px;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 $box_shadow;
+    transition: 0.3s;
+    max-width: 250px;
+    text-align: center;
+    font-size: $subheading_font;
+    font-family: $font;
+    color: $heading_color;
+    font-weight: $gtext_weight;
+    border-radius: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 $box_shadow;
+}
+
+img{
+    max-width: 350px;
+}
+
+.recipes2{
+    @extend .recipes;
+    padding-bottom: 3.5rem;
+}
+
+// Newsletter
+
+input {
+    width: 18rem;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 1px;
+    border-color: $main_color;
+}
+
+button {
+    font-size: $button_font;
+    font-weight: $button_weight;
+    width: $button_width;
+    height: $button_height;
+    padding: $button_padding;
+}
+
+.newsletter {
+    background-color: $newsletter_bg;
+    margin: $global_margin;
+    height: 10rem;
+    padding: 1rem;
+}
+
+.newsletter{
+    img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+    p{
+        margin: 10px;
+        font-size: $subheading_font;
+    }
+}
+
+.newsletter-row{
+    @include newsletter;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.newsletter-column{
+    @include newsletter;
+    flex-direction: column;
+}
+
+//Main Section
+.main img{
+    max-width: 100vh;
+}
+
+.main{
+    text-align: center;
+    margin: 1rem 0px;
+    h3{
+        font-family: $font;
+        font-size: $bigger_font;
+        font-weight: $gtext_weight;
+        color: $heading_color;
+    }
+    img, h3, p, button{
+        margin: 0.7rem 0;
+    }
+    p{
+        font-family: $font;
+        font-size: $small_font;
+    }
+    button{
+        @extend button;
+        padding: 10px;
+    }
+    
+}
+
+
+//Footer 
+footer {
+    position: absolute;
+    width: 100%;
+    height: 3.5rem;
+    background-color: $footer_bg;
+    color: $text_color;
+    text-align: center;
+    padding: 2rem;
+    font-size: $subheading_font;
+    font-family: $font;
+    font-weight: 500;
+
+    p{
+        margin: 0.9rem;
+    }
+    a{
+        margin: 0 0.5rem;
+    }
+}

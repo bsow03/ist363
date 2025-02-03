@@ -1,1 +1,49 @@
 // iii.	reused styles with a variables.scss include – for example colors or fonts
+
+//Spacing
+$global_margin: 0 1rem; // Keeps all content consistent on the page
+
+//Nav Variables
+$nav_padding: 30px 0px;
+$nav_textpadding: 20px 0px;
+$link_margins: 0.7rem;
+
+//Global Variables (Variables I will use throughout)
+$font: Arial, sans-serif;
+$small_font: 20px;
+$subheading_font: 25px;
+$bigger_font: 30px;
+$button_font: 18px;
+$button_weight: 300;
+$button_height: 40px;
+$button_width: 125px;
+$button_padding: 6px 15px;
+
+//Background Colors
+$newsletter_bg: #e4fdc3;
+$footer_bg: #8ae2c8;
+$nav_bg: #e89b6a;
+$melon_bg: #e2625c;
+
+//Text Colors
+$text_color: white;
+$heading_color: $melon_bg;
+$main_color: $nav_bg;
+
+//Gallery Variables
+$box_shadow: rgba(0, 0, 0, 0.2);
+$gtext_weight: 600;
+
+/*$gallery_width: ;
+$gallery_height: ;
+*/
+
+
+.button-basic {
+    border: none;
+    border-radius: 5px;
+    background-color: $nav_bg;
+    color: white;
+    text-align: center;
+}
+
