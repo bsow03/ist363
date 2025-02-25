@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="example.js">
+</head>
+<body>
+    <h1>JavaScript Basics</h1>
+    <!-- this is how you include JS internally -->
+    <script>
+        //dog years
+        let dogAge = 14;
+        let type = "cat";
+        let petAge;
+        if (type == "dog") {
+            petAge = dogAge * 7;
+        }
+        else if (type == "cat") {
+            petAge = dogAge * 4;
+        }
+        console.log("My pet is a " + type + " and it is" + petAge);
+
+        console.log("Hello World"); // comment
+
+
+        //multiply
+        let x = 2 * 2034;
+        console.log(x);
+        console.log(1 == 2);
+        console.log(0 && 1); // && means and
+        console.log(0 || 1); // || means or
+        console.log(10 == 20 || 20 == 10); //
+
+
+        //class activity
+        let gpa = 3.4;
+        if (gpa >= 3.5) {
+            console.log("Congratulations you have made the Dean's List!")
+        }
+        else {
+            console.log("Unfortunately, you have not made the Dean's List. Keep up the hardwork and you will make it one day!")
+        }
+
+    </script>
+    
+</body>
+</html>
