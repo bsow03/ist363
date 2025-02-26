@@ -95,10 +95,10 @@
     </div>
 
     <!-- customer reviews -->
-    <div class="container border border-primary m-5">
-      <h1 class="title fw-light text-center text-primary p-3">Customer Reviews</h1>
-      <div class="d-flex flex-row justify-content-center mb-4 gap-5">
-        <div class="card" style="width: 20rem; height: 12rem;">
+    <div class="container border border-primary mt-5">
+      <h1 class="title fw-light text-center text-primary pt-5">Customer Reviews</h1>
+      <div class="d-flex flex-row justify-content-center mb-4 gap-5 row row-cols-md-1">
+        <div class="card" style="width: 20rem;">
           <div class="card-body p-4">
             <h5 class="card-title fw-light">Amazing Work!</h5>
             <p class="card-text">Absolutely stunning photography. highly recommend!</p>
@@ -145,7 +145,7 @@
     <!-- faq section and accordion -->
     <div class="container mt-5 border border-primary">
       <h1 class="title fw-light text-start text-primary">FAQs</h1>
-      <div class="accordion mt-5" id="accordionPanelsStayOpenExample">
+      <div class="accordion mt-0 mb-2" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="panelsStayOpen-headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -187,16 +187,37 @@
 
     <!-- get in touch form -->
     <div class="container mt-5 border border-primary">
-      <h1 class="text-center">Get In Touch</h1>
+      <h1 class="text-center fw-light mt-2">Get In Touch</h1>
       <p class="fw-lighter text-center">Questions to Ask? Fill out the form to contact me directly.</p>
 
-      <div class="d-flex flex-column gap-1">
-        <label>Email Address: <input placeholder="e.g. mario@example.com"></label>
-        <label>Name: <input placeholder="e.g. Mario"></label>
-        <label>What is your question about?: <input placeholder="Pricing query"></label>
-        <textarea placeholder="Your query..."></textarea>
+      <div class="d-flex flex-column gap-1 justify-content-center mx-3">
+
+        <label>Email Address:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+          <input placeholder="e.g. mario@example.com" type="email" class="form-control">
+          <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+        </div>
+
+        <label>Name:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+          <input placeholder="e.g. mario@example.com" type="email" class="form-control">
+          <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+        </div>
+
+        <label>What is your question about?:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+          <input placeholder="e.g. mario@example.com" type="email" class="form-control">
+          <span class="input-group-text"><i class="bi bi-question-circle"></i></span>
+        </div>
+  
+        <textarea placeholder="Your query..." class="mb-3 mx-3"></textarea>
+
+        <button type="button" class="btn btn-secondary mx-auto">Submit</button>
       </div>
-      
+    
 
     </div>
 
