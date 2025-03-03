@@ -11,6 +11,36 @@
     <h1>JavaScript Basics</h1>
     <!-- this is how you include JS internally -->
     <script>
+
+        // Problem 6
+        let book = {
+            title: "To Kill A Mockingbird",
+            author: "Harper Lee",
+            yearPublished: 1960,
+            isAvailable: true
+        };
+
+        console.log(book.title + ", " + book.author); // Book
+
+        if (book.isAvailable == true) {
+            console.log("This book is available for checkout.")
+        } else {
+            console.log("Sorry, this book is currently checked out.")
+        }
+
+        let x = 2;
+        while (x < 21) {
+            if (x / 2) {
+                console.log(x);
+            } else {
+                console.log("");
+            }
+        }
+
+        // Problem 7
+        let randomNumber = Math.floor(Math.random() + 6);
+        console.log(randomNumber);
+
         //dog years
         let dogAge = 14;
         let type = "cat";

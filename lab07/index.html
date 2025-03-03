@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Lab</title>
+    <link href="index.js" rel="stylesheet">
+</head>
+<body>
+    <h1> Check the console log!</h1>
+    <script>
+
+        // Problem 1
+        let favNum = 4;
+        console.log("Solution 1: My favorite number is "+ favNum + ".");
+
+        // Problem 2
+        let favFoods = ['mango','ice cream', 'potatoes', 'steak'];
+        console.log("Solution 2: "+ favFoods[1])
+
+        // Problem 3
+        favFoods.push('cajun rice and chicken');
+        console.log("Solution 3: " + favFoods);
+
+        // Problem 4
+        for (let i = 0; i < favFoods.length; i++) {
+            console.log("Favorite food " + [i+1] + ": " + favFoods[i])
+        }
+
+        // Problem 5
+        for (let i = 0; i < favFoods.length; i++) {
+            if (favFoods[i] == 'ice cream') {
+                console.log("");
+            }
+            else {
+                console.log("Favorite food " + [i+1] + ": " + favFoods[i]);
+            }
+        }
+        
+        // Problem 6
+        let book = {
+            title: "To Kill A Mockingbird",
+            author: "Harper Lee",
+            yearPublished: 1960,
+            isAvailable: true
+        };
+
+        console.log(book.title + ", " + book.author); // Book
+
+        if (book.isAvailable == true) {
+            console.log("This book is available for checkout.")
+        } else {
+            console.log("Sorry, this book is currently checked out.")
+        }
+
+        let x = 2;
+        while (x < 21) {
+            if (x / 2) {
+                console.log(x);
+            } else {
+                console.log("");
+            }
+        }
+
+        // Problem 7
+        let randomNumber = Math.floor(Math.random() + 6);
+        console.log(randomNumber);
+
+        
+    </script>
+    
+</body>
+</html>
