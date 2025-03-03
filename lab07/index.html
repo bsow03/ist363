@@ -55,16 +55,13 @@
         }
 
         let x = 2;
-        while (x < 21) {
-            if (x / 2) {
-                console.log(x);
-            } else {
-                console.log("");
-            }
+        while (x <= 20) {
+            console.log(x);
+            x += 2;
         }
 
         // Problem 7
-        let randomNumber = Math.floor(Math.random() + 6);
+        let randomNumber = Math.floor(Math.random() * 5) + 1;
         console.log(randomNumber);
 
         
