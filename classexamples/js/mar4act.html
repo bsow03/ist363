@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Years Calculator</title>
+</head>
+<body>
+    
+    <h1>Dog Age to Dog Years Calculator</h1>
+
+  
+        <label for="dog age">Enter your dog's age (in human years) <input type="text" class="input"></label>
+        <button id="myButton">Calculate</button>
+
+        <div id="textarea"> 
+
+        </div>
+
+    <script>
+
+        //dog years
+        
+
+        //event listener to watch when user presses calc
+        document.getElementById('myButton').addEventListener("click", myFunction);
+        
+        // get the value the user enters by using a method besides getElementById
+        
+
+        // show the dog years on screen using innerText method
+
+        function myFunction () {
+            let dogAge = document.getElementsByTagName("input")[0].value;
+            dogAge = dogAge * 7;
+            document.getElementById('textarea').innerHTML = "My dog is " + dogAge + " years old";
+            return dogAge;
+        }
+
+
+        
+
+    </script>
+</body>
+</html>

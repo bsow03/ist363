@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="pone" class="odd">one</p>
+    <p class="even">two</p>
+    <p class="odd">three</p>
+
+
+    <form id="myForm">
+        <input type="text" name="fname" value="Laurie">
+        <input type="text" name="lname" value="Ferger">
+        <input type="submit" value="send form">
+    </form>
+
+    <button id="myButton">Sign Up!
+    </button>
+
+    <script>
+        // pick something by id and console login
+        let picked = document.getElementById('pone');
+        console.log(picked);
+
+        // pick by class and tag => returns array (not one result but multiple)
+
+        let oddTags = document.getElementsByClassName('odd');
+        for (i = 0; i < oddTags.length; i++) {
+            console.log(oddTags[i]);
+        }
+
+        console.log('Below is the log by tag name');
+        let pTags = document.getElementsByTagName('p'); // looking for p tag
+        for (i = 0; i < pTags.length; i++) {
+            console.log(pTags[i]);
+        }
+
+        //Getting element values from a form
+        console.log('Below is the values that I want to get from the form');
+        console.log(document.getElementById("myForm").elements[0]);
+
+        //If I want to get just the value
+        console.log(document.getElementById("myForm").elements[0].value);
+
+        //changing text and HTML in tags (as soon as page loads up)
+        document.getElementById('pone').innerHTML = "four";
+
+        //change form value (as soon as page loads up)
+        document.getElementById("myForm").elements[0].value = 'Natasha';
+
+        // change a style
+        document.getElementById("pone").style.color = "blue";
+        document.getElementsByTagName('body')[0].style.backgroundColor = "grey";
+        //getElementsByTagName returns an array, which is why [0] is important after getElementsByTagName
+
+        // we created a button with the id called myButton and an alert will pop up
+        document.getElementById('myButton').addEventListener("click", myFunction);
+
+        function myFunction () {
+            alert("Hello");
+        }
+
+    </script>
+</body>
+</html>
