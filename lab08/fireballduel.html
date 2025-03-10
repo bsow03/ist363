@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        body {font-family: Verdana, Geneva, Tahoma, sans-serif; color: #ffffff; text-align: center;}
+        .container {background-color: #000000; padding: 40px; border-radius: 20px; width: 700px; margin: 20px auto; position: relative;}
+        #gameboard, #scoreboard, #playbutton {display: flex; width: 90%; margin: 20px auto;}
+        #gameboard .chars, #scoreboard div, #playbutton button {flex: 1; text-align: center;}
+        .chars img {width: 100%;}
+        .fireball img {width: 80px;}
+        .fireball {flex: 4;}
+        #fireballleft {position: absolute; left: 180px; top: 150px; transition: all 2s ease-in-out;}
+        #fireballright {rotate: 180deg; position: absolute; rotate: 180deg; left: 500px; top: 150px; transition: all 2s ease-in-out;}
+        .medievalsharp-regular {font-family: "MedievalSharp", cursive; font-weight: 400; font-style: normal;}
+        button { background: #ffbf7f; background-image: -webkit-linear-gradient(top, #ffbf7f, #ff8000); background-image: -moz-linear-gradient(top, #ffbf7f, #ff8000); background-image: -ms-linear-gradient(top, #ffbf7f, #ff8000); background-image: -o-linear-gradient(top, #ffbf7f, #ff8000); background-image: linear-gradient(to bottom, #ffbf7f, #ff8000); color: white; border: 0px; padding: 10px 20px 10px 20px; }
+        button:hover {background: #ff8000; background-image: -webkit-linear-gradient(top, #ff8000, #ff8000); background-image: -moz-linear-gradient(top, #ff8000, #ff8000); background-image: -ms-linear-gradient(top, #ff8000, #ff8000); background-image: -o-linear-gradient(top, #ff8000, #ff8000); background-image: linear-gradient(to bottom, #ff8000, #ff8000); }        
+        p { font-size: 20px;font-weight: bold;text-align: center;width: 100%;}
+        .animate {animation: moveRight 1s ease-in-out backwards;}
+        @keyframes moveRight {
+            0% {transform: translate(0%);}
+            100% {transform: translate(300px);}
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="medievalsharp-regular">Fireball Duel</h1>
+        <div id="gameboard">
+            <div class="chars"><img src="images/monster.jpg" alt="monster" id="monster"></div>
+            <div class="fireball">
+                <img src="images/fireball.gif" alt="fireball" id="fireballleft">
+                <img src="images/fireball.gif" alt="fireball" id="fireballright">
+            </div>
+            <div class="chars"><img src="images/girl.jpg" alt="girl" id="girl"></div>
+        </div>
+        <div id="scoreboard">
+            <div>Monster Shield: <span id="mscore">100</span>%</div>
+            <div>Girl Shield: <span id="gscore">100</span>%</div>
+        </div>
+        <div id="playbutton"><button>Throw Fireball</button></div>
+    </div>
+
+        <script>
+            
+            var girlShield = 100;
+            var monsterShield = 100;
+
+            // animation when button is clicked
+            document.getElementById("playbutton").addEventListener("click", playGame);
+
+            function playGame() {
+                animateFireball();
+                calculateThrow();
+                checkWinner();
+            }
+
+            function animateFireball() {
+
+
+                // Remove the class to reset animation
+                document.getElementById("fireballleft").classList.remove("animate");
+                document.getElementById("fireballright").classList.remove("animate");
+
+                // Use a small timeout to allow the browser to register the removal
+                setTimeout(() => {
+                    document.getElementById("fireballleft").classList.add("animate");
+                    document.getElementById("fireballright").classList.add("animate");
+                }, 10);  // Small delay ensures re-triggering
+        }
+
+        function calculateThrow() {
+
+            var girlThrow = Math.floor(Math.random() * 20) + 1;
+            var monsterThrow = Math.floor(Math.random() * 20) + 1;
+            
+            girlShield -= monsterThrow;
+            monsterShield -= girlThrow;
+
+            document.getElementById("gscore").innerText = girlShield < 0 ? 0 : girlShield;
+            document.getElementById("mscore").innerText = monsterShield < 0 ? 0 : monsterShield;
+        }
+       
+        function checkWinner() {
+            if (girlShield <= 0 && monsterShield <= 0) {
+                endGame("Both lost!");
+            } else if (girlShield <= 0) {
+                endGame("Monster won!");
+            } else if (monsterShield <= 0) {
+                endGame("Girl won!");
+            }
+        }
+
+        function endGame(message) {
+            document.getElementById("playbutton").innerHTML = "";
+            var result = document.createElement("p");
+            result.innerText = message;
+            document.querySelector(".container").appendChild(result);
+        }
+
+        </script>
+</body>
+</html>
