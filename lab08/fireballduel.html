@@ -88,10 +88,14 @@
        
         function checkWinner() {
             if (girlShield <= 0 && monsterShield <= 0) {
+                document.getElementById("monster").src = "images/boom.png";
+                document.getElementById("girl").src = "images/boom.png";
                 endGame("Both lost!");
             } else if (girlShield <= 0) {
+                document.getElementById("girl").src = "images/boom.png";
                 endGame("Monster won!");
             } else if (monsterShield <= 0) {
+                document.getElementById("monster").src = "images/boom.png";
                 endGame("Girl won!");
             }
         }
