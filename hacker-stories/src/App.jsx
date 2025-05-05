@@ -1,75 +1,57 @@
-import { useState } from "react";
+import { useState } from 'react';
+import useZenQuotes from './hooks/useZenQuotes';
+import Navbar from './components/Navbar';
+import Dashboard from './staticpages/Dashboard';
+import AddGoal from './staticpages/AddGoal';
+import CompletedGoals from './staticpages/CompletedGoals';
+import Footer from './components/Footer';
+
+function App() {
+  const [view, setView] = useState('dashboard');
+  const [goals, setGoals] = useState([]); // Store all goals here
+  const quotes = useZenQuotes();        // ← plug key
+  console.log(quotes);
+
+  
+
+  // ① Mark a goal completed, timestamp it, and fire an alert
+  const handleComplete = id => {
+    setGoals(prev =>
+      prev.map(g =>
+        g.id === id
+          ? { ...g, status: 'completed', completedAt: new Date().toISOString() }
+          : g
+      )
+    );
+    const pts = goals.find(g => g.id === id)?.difficulty || 0;
+    alert(`You scored! Congrats, you earned ${pts} points. Keep scoring!`);
+  };
 
 
-function App () {
-  const [list, setList] = useState([
-    {
-      title:'Complete Lab 11',
-      objectID: 1,
-      status:'incomplete'
-    },
-    {
-      title:'Review JSX Events and State',
-      objectID: 2,
-      status:'incomplete'
-    }]);
+   // Choose one at random (or fallback)
+   const todayQuote =
+   quotes.length > 0
+     ? quotes[Math.floor(Math.random() * quotes.length)]
+     : { q: 'Loading inspirational quote…', a: '' };
 
-    const [taskInput, setTaskInput] = useState("");
-
-    function handleComplete(objectID) {
-      const updatedList = list.map(function(item) {
-        if (item.objectID === objectID) {
-          return { ...item, status: 'completed' };
-        }
-        return item;
-      }); // Line 24      
-    setList(updatedList);
-    };
-
-    function addTask(taskName) {
-      if (taskInput.trim() !== "") {
-        const newTask = {
-          title: taskInput,
-          objectID: list.length + 1,
-          status: 'incomplete'
-        };
-      setList([...list, newTask]);
-      setTaskInput("");
-      }
-    }
+  console.log('🔥 App mounted, view =', view);
 
   return (
-    <div>
-      <h1>To-Do List</h1>
-      <input 
-      type="text" 
-      placeholder="Enter a task"
-      value={taskInput}
-      onChange={(e) => setTaskInput(e.target.value)
-      }
-      />
-      <button onClick={addTask}>Add Task</button>
-      <ul>
-        {list.map(function(item) {
-          return <li key={item.objectID}>
-            <span 
-                style={{ 
-                  textDecoration: item.status === 'completed' ? 'line-through' : 'none' 
-                }}>
-            {item.title}
-            </span>
-            <button onClick={()=> handleComplete(item.objectID)}>❌</button>
-            </li>
-          ;
-        })}
-      </ul>
-
+    <div className="h-screen w-screen bg-gray-900 text-white overflow-x-hidden">
+      <Navbar setPage={setView} />
+      <main className="flex-1 p-4">
+      {view === 'dashboard' && (
+      <Dashboard
+        goals={goals}
+        quote={{ quote: todayQuote.q, author: todayQuote.a }}
+        onComplete={handleComplete}
+    />)}
+      {view === 'add' && <AddGoal setGoals={setGoals}/>}
+      {view === 'completed' && <CompletedGoals goals={goals}/>}
+      </main>
+      <Footer />
     </div>
   );
 }
 
-
-
-
-
-export default App
+export default App; 
