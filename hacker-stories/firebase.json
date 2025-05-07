@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "hacker-stories/dist",
+    "public": "hacker-stories",
     "ignore": [
       "firebase.json",
       "**/.*",
