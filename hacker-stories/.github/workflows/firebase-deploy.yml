@@ -1,6 +1,5 @@
 name: Deploy to Firebase Hosting
 
-# Trigger on every push to main
 on:
   push:
     branches:
@@ -11,29 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Check out your code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2) Use Node 20
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # 3) Install dependencies & build
       - name: Install & build
         run: |
           npm ci
           npm run build
 
-      # 4) Deploy to Firebase using your service account
       - name: Deploy to Firebase Hosting
         env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_scoreyourgoals-ebca0 }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SCOREYOURGOALS_EBCA0 }}
         run: |
-          cd hacker-stories
           npx firebase-tools deploy \
             --only hosting \
             --project scoreyourgoals-ebca0 \
-            --token "$FIREBASE_SERVICE_ACCOUNT"
+            --token "$FIREBASE_TOKEN"
